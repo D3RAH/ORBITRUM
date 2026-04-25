@@ -1,0 +1,952 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap');
+
+/* --- Basic Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --vdark-blue: #0b0d17;
+    --light-blue: #d0d6f9;
+    --white: #ffffff;
+
+    /* Fonts */
+    --ff-serif: 'Bellefair', serif;
+    --ff-sans: 'Barlow Condensed', sans-serif;
+    --ff-sans-normal: 'Barlow', sans-serif;
+}
+
+body {
+    background-color: var(--vdark-blue);
+    color: var(--white);
+    font-family: var(--ff-sans-normal); 
+    font-size: 1.125rem;
+    height: 100vh;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--ff-serif);
+    font-weight: 400;
+}
+
+
+.home {
+    background-image: url('../assets/home/background-home-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 15vh;
+    padding: 0 10%;
+}
+
+.hero-content {
+    max-width: 450px;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: var(--light-blue);
+    line-height: 1.8;
+}
+
+
+.large-button {
+    display: inline-grid;
+    place-items: center;
+    padding: 0 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--vdark-blue);
+    text-transform: uppercase;
+    font-family: var(--ff-serif);
+    font-size: 2rem;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.large-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.large-button:hover::after {
+    transform: scale(1.5);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 0 3rem;
+    overflow: hidden;
+}
+
+.logo {
+    order: 1;
+    padding: 0 2rem;
+}
+
+nav {
+    order: 3;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    padding: 0 10vw 0 8vw;
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav-links span {
+    font-weight: 700;
+    margin-right: 0.7rem;
+}
+
+.nav-links, .sub-heading {
+    font-family: var(--ff-sans-cond);
+}
+
+.nav-line {
+    order: 2; 
+    flex-grow: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    margin-right: -3rem; 
+    position: relative;
+    z-index: 10;
+}
+
+.main-title {
+    font-family: var(--ff-serif);
+    font-size: clamp(5rem, 15vw, 9.375rem);
+    text-transform: uppercase;
+    margin: 1.5rem 0;
+    font-weight: 400;
+}
+
+.sub-heading {
+    font-family: var(--ff-sans);
+    letter-spacing: 4.75px;
+    text-transform: uppercase;
+    color: var(--light-blue);
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem; 
+    letter-spacing: 2.7px; 
+    font-weight: 400;
+    padding: 2.3rem 0; 
+    display: block;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-links li.active a {
+    border-bottom: 3px solid var(--white);
+}
+
+.nav-links a:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.hamburger {
+    display: none;
+}
+
+.nav-close {
+    display: none;
+}
+
+
+/* --- Destination Background --- */
+.destination {
+    background-image: url('../assets/destination/background-destination-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Layout Grid --- */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10% 2rem 10%;
+    align-items: center;
+    column-gap: 4rem;
+    height: 80vh;
+}
+
+.numbered-title {
+    grid-column: 1 / -1;
+    font-family: var(--ff-sans);
+    letter-spacing: 4.75px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.numbered-title span {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 700;
+    margin-right: 1.5rem;
+}
+
+.destination-image img {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Planet Tabs (Sub-nav) --- */
+.tab-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.tab-list a {
+    text-decoration: none;
+    color: var(--light-blue);
+    text-transform: uppercase;
+    font-family: var(--ff-sans);
+    letter-spacing: 2.7px;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-list li.active a {
+    color: var(--white);
+    border-bottom: 3px solid var(--white);
+}
+
+.tab-list a:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.destination-name {
+    font-family: var(--ff-serif);
+    font-size: clamp(4rem, 8vw, 6.25rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.destination-info {
+    max-width: 445px;
+}
+
+/* --- Divider & Stats --- */
+.destination-meta {
+    display: flex;
+    gap: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    font-family: var(--ff-sans);
+    letter-spacing: 2.35px;
+    margin-bottom: 0.75rem;
+}
+
+.stat-value {
+    font-family: var(--ff-serif);
+    font-size: 1.75rem;
+    text-transform: uppercase;
+}
+
+
+/* --- Crew Layout Desktop--- */
+
+.crew {
+    background-image: url('../assets/crew/background-crew-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.crew-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    padding: 0 10%;
+    height: 85vh;
+}
+
+.crew-grid .numbered-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-top: 2rem;
+}
+
+
+.crew-info {
+    grid-column: 1;
+    grid-row: 2 / 3;
+    padding-bottom: 2rem;
+    align-self: end;
+}
+
+.crew-role {
+    font-family: var(--ff-serif);
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+}
+
+.crew-name {
+    font-family: var(--ff-serif);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.crew-image {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.crew-image img {
+    max-height: 80vh;
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- Dot Indicators --- */
+
+.dot-indicators {
+    display: flex;
+    gap: 1.5rem;
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    margin-top: 0;
+    margin-bottom: 5rem;
+}
+
+.dot-indicators a {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    display: block;
+    text-decoration: none;
+}
+
+.dot-indicators a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dot-indicators a.active {
+    background-color: var(--white);
+}
+
+
+/* --- Technology Section --- */
+.technology {
+    background-image: url('../assets/technology/background-technology-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.tech-grid {
+    padding-left: 10%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.tech-grid .numbered-title {
+    margin-top: 2rem;
+    font-size: 1.75rem;
+    grid-column: unset;
+    margin-bottom: 0;
+}
+
+.tech-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 3rem;
+    max-width: 58%;
+}
+
+.tech-tabs {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-shrink: 0;
+}
+
+.tech-tabs a {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--white);
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    font-family: var(--ff-serif);
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.tech-tabs a:hover {
+    border-color: var(--white);
+}
+
+.tech-tabs a.active {
+    background-color: var(--white);
+    color: var(--vdark-blue);
+    border-color: var(--white);
+}
+
+.tech-info {
+    order: 2;
+    flex: 1;
+}
+
+.tech-terminology {
+    font-family: var(--ff-sans);
+    color: var(--light-blue);
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tech-name {
+    font-family: var(--ff-serif);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    color: var(--white);
+}
+
+.tech-info .description {
+    color: var(--light-blue);
+    font-family: var(--ff-sans);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.tech-image {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tech-image img {
+    display: block;
+    max-height: 65vh;
+    width: auto;
+}
+
+
+
+/* TABLET VIEW (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+    body {
+        overflow: auto;
+        height: auto;
+    }
+
+    .nav-line {
+    display: none;
+    }
+
+    .nav-links {
+        padding: 0 3vw;
+        gap: 1.5rem;
+    }
+
+    /* .nav-links span {
+        display: none;
+    } */
+
+    /* --- Background Images --- */
+    .home {
+        background-image: url('../assets/home/background-home-tablet.jpg');
+    }
+    .destination {
+        background-image: url('../assets/destination/background-destination-tablet.jpg');
+    }
+    .crew {
+        background-image: url('../assets/crew/background-crew-tablet.jpg');
+    }
+    .technology {
+        background-image: url('../assets/technology/background-technology-tablet.jpg');
+    }
+
+    .home, .destination, .crew, .technology {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 100vh;
+    }
+
+    /* --- Home Tablet --- */
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 10vh;
+        padding: 0 5%;
+        gap: 5rem;
+    }
+
+    .hero-content {
+        max-width: 500px;
+    }
+
+    .main-title {
+        font-size: 9.375rem;
+    }
+
+    .large-button {
+        margin: 0 auto;
+    }
+
+
+    /* --- Destination Tablet --- */
+    .destination-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 2rem 5% 3rem 5%;
+    }
+
+    .destination-grid .numbered-title {
+        align-self: flex-start;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .destination-image {
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8rem;
+        margin-bottom: 2rem;
+    }
+
+    .destination-image img {
+        max-width: 280px;
+        width: 60%;
+    }
+
+    .destination-info {
+        order: 2;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-list {
+        justify-content: center;
+    }
+
+    .destination-meta {
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    /* --- Crew Tablet --- */
+    .crew-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 2rem 5% 3rem 5%;
+    }
+
+    .crew-grid .numbered-title {
+        align-self: flex-start;
+        margin-bottom: 2rem;
+        padding-top: 0;
+        grid-column: unset;
+        grid-row: unset;
+    }
+
+    .crew-image {
+        order: 1;
+        height: auto;
+        width: 100%;
+        max-height: 50vh;
+        overflow: hidden;
+        align-items: flex-end;
+        grid-column: unset;
+        grid-row: unset;
+    }
+
+    .crew-image img {
+        max-height: 50vh;
+        width: auto;
+        margin: 0 auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .crew-info {
+        order: 2;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-column: unset;
+        grid-row: unset;
+        align-self: unset;
+        width: 100%;
+    }
+
+    .dot-indicators {
+        order: 3;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        grid-column: unset;
+        grid-row: unset;
+        align-self: unset;
+        width: 100%;
+    }
+
+    /* --- Technology Tablet --- */
+    .technology {
+        overflow: visible;
+    }
+
+    .tech-grid {
+        padding-left: 0;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: visible;
+        position: static;
+    }
+
+    .tech-grid .numbered-title {
+        order: 0;
+        align-self: flex-start;
+        padding: 2rem 5% 0 5%;
+        margin-bottom: 0;
+    }
+
+    .tech-image {
+        position: static;
+        transform: none;
+        width: 100vw;
+        order: 1;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    .tech-image img {
+        width: 100%;
+        max-height: 40vh;
+        object-fit: cover;
+    }
+
+    .tech-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        max-width: 90%;
+        order: 2;
+        gap: 2rem;
+        margin-top: 0;
+    }
+
+    .tech-info {
+        text-align: center;
+        order: 1;
+        flex: unset;
+    }
+
+    .tech-tabs {
+        flex-direction: row;
+        order: 2;
+    }
+}
+
+/* MOBILE VIEW (max-width: 480px) */
+@media (max-width: 480px) {
+    .home {
+        background-image: url('../assets/home/background-home-mobile.jpg');
+    }
+    .destination {
+        background-image: url('../assets/destination/background-destination-mobile.jpg');
+    }
+    .crew {
+        background-image: url('../assets/crew/background-crew-mobile.jpg');
+    }
+    .technology {
+        background-image: url('../assets/technology/background-technology-mobile.jpg');
+    }
+
+    .home, .destination, .crew, .technology {
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* --- Header & Nav --- */
+    .main-header {
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .nav-line {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 100;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70vw;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(40px);
+        padding: 7rem 2rem 2rem 2rem;
+        gap: 2rem;
+        z-index: 99;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links span {
+        display: inline;
+    }
+
+    .nav-links a {
+        padding: 0;
+        border-bottom: none;
+        font-size: 1rem;
+    }
+
+    .nav-links li.active a {
+        border-bottom: none;
+    }
+
+    .nav-close {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    /* --- Home Mobile --- */
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 5vh;
+        padding: 0 5%;
+        gap: 5rem;
+    }
+
+    .main-title {
+        font-size: clamp(5rem, 20vw, 7rem);
+    }
+
+    .large-button {
+        width: 150px;
+        height: 150px;
+        font-size: 1.25rem;
+        margin: 0 auto;
+    }
+
+    /* --- Destination Mobile --- */
+    .destination-grid {
+        padding: 1.5rem 5% 3rem 5%;
+    }
+
+    .destination-image img {
+        max-width: 200px;
+        width: 50%;
+    }
+
+    .destination-name {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .destination-meta {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    /* --- Crew Mobile --- */
+    .crew-grid {
+        padding: 1.5rem 5% 3rem 5%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .crew-image {
+        max-height: 55vw;
+    }
+
+    .crew-image img {
+        max-height: 55vw;
+    }
+
+    .crew-name {
+        font-size: clamp(1.5rem, 8vw, 3.5rem);
+    }
+
+    /* --- Technology Mobile --- */
+    .tech-grid {
+        padding: 1.5rem 0 3rem 0;
+    }
+
+    .tech-grid .numbered-title {
+        padding: 0 5% 1.5rem 5%;
+    }
+
+    .tech-name {
+        font-size: clamp(1.5rem, 8vw, 3.5rem);
+    }
+
+    .tech-tabs a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+}
+
+/* --- 1. Page Load Animation --- */
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 3. Orbitum Planet Animation --- */
+@keyframes planetOrbit {
+    from { 
+        opacity: 0;
+        transform: scale(0.8) rotate(-10deg); 
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1) rotate(0deg); 
+    }
+}
+
+.destination-image img {
+    animation: planetOrbit 1.8s ease-out forwards;
+    -webkit-animation: planetOrbit 1.8s ease-out forwards;
+}
+
+main {
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+/* --- 2. Nav Link Hover Effects --- */
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+.nav-links li.active::after {
+    width: 100%;
+    background-color: white;
+}
